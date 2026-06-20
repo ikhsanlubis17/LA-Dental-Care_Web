@@ -1,0 +1,20 @@
+{
+  "src/index.css": {
+    "file": "assets/index-4vuSXDfB.css",
+    "name": "index",
+    "names": [
+      "index.css"
+    ],
+    "src": "src/index.css",
+    "isEntry": true
+  },
+  "src/main.jsx": {
+    "file": "assets/main-CDpBb6tc.js",
+    "name": "main",
+    "src": "src/main.jsx",
+    "isEntry": true,
+    "css": [
+      "assets/index-4vuSXDfB.css"
+    ]
+  }
+}
