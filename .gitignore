@@ -1,4 +1,34 @@
+# ============================================================
+# Laravel / PHP
+# ============================================================
+/vendor/
+/node_modules/
+
+.env
+.env.*
+!.env.example
+
+/storage/*.key
+/storage/logs/*.log
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+
+/bootstrap/cache/*.php
+
+.phpunit.result.cache
+
+# ============================================================
+# Build Output
+# ============================================================
+/dist/
+/dist-ssr/
+/public/build/
+/public/hot
+
+# ============================================================
 # Logs
+# ============================================================
 logs
 *.log
 npm-debug.log*
@@ -7,18 +37,23 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
-dist-ssr
-*.local
-
-# Editor directories and files
+# ============================================================
+# Editor / OS
+# ============================================================
 .vscode/*
 !.vscode/extensions.json
-.idea
+.idea/
 .DS_Store
+Thumbs.db
+
 *.suo
 *.ntvs*
 *.njsproj
 *.sln
 *.sw?
+
+# ============================================================
+# Local temporary files
+# ============================================================
+*.local
+laravel-temp/
