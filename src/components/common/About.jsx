@@ -90,6 +90,8 @@ export default function About() {
               alt="Dental clinic interior LA Dental Care Klampok" 
               className="object-cover w-full h-full hover:scale-102 transition-transform duration-500" 
               src={about?.image_url || 'https://lh3.googleusercontent.com/aida-public/AB6AXuD3WUNVGefIW7a7uH3DK_Pi1esWOcNtNJ7FtiT2N-hTjp53CfoyL9Cg0HheC8wZFCOxpPxDqVm7grNG_zWuG9begrBNdMMIIzIqhLpZ_bysGQo4s78XkRKHFg6yXr-ghoLEMuNIaMQ4h--N8lX3rvDydJd_J6sSGdiCKHWGWyrvPCEDkRQk_sb8-ucp82tkGgJXh_erM2QllUaGmPk71yUarlbWVS2_ACew75B7y0FnQVjsqcYNQKmtlZe8caulogdCsxOQxjKwvmqc'}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary-container/20 to-transparent"></div>
           </div>

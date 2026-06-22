@@ -33,4 +33,14 @@ class User extends Authenticatable
     {
         return $this->hasOne(AdminProfile::class);
     }
+
+    public function isSuperAdmin(): bool
+    {
+        return $this->adminProfile?->role === 'super_admin';
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->adminProfile?->role === 'admin' || $this->adminProfile?->role === 'super_admin';
+    }
 }

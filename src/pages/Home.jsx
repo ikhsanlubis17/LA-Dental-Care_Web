@@ -1,19 +1,22 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense, lazy } from 'react';
 import Navbar from '../components/layout/Navbar';
 import Hero from '../components/common/Hero';
-import About from '../components/common/About';
-import DoctorProfile from '../components/common/DoctorProfile';
-import Services from '../components/common/Services';
-import Schedule from '../components/common/Schedule';
-import Gallery from '../components/common/Gallery';
-import Testimonials from '../components/common/Testimonials';
-import FAQ from '../components/common/FAQ';
-import Contact from '../components/common/Contact';
-import ContactForm from '../components/common/ContactForm';
-import BookingForm from '../components/common/BookingForm';
+import LazySection from '../components/common/LazySection';
 import FloatingWhatsApp from '../components/common/FloatingWhatsApp';
 import Seo from '../components/common/Seo';
 import Footer from '../components/layout/Footer';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
+
+const About = lazy(() => import('../components/common/About'));
+const DoctorProfile = lazy(() => import('../components/common/DoctorProfile'));
+const Services = lazy(() => import('../components/common/Services'));
+const Schedule = lazy(() => import('../components/common/Schedule'));
+const Gallery = lazy(() => import('../components/common/Gallery'));
+const Testimonials = lazy(() => import('../components/common/Testimonials'));
+const FAQ = lazy(() => import('../components/common/FAQ'));
+const Contact = lazy(() => import('../components/common/Contact'));
+const ContactForm = lazy(() => import('../components/common/ContactForm'));
+const BookingForm = lazy(() => import('../components/common/BookingForm'));
 
 export default function Home() {
   const [activeSection, setActiveSection] = useState('beranda');
@@ -75,51 +78,87 @@ export default function Home() {
         <Hero onNavClick={handleNavClick} />
 
         {/* Tentang Kami (About) Section */}
-        <About />
+        <LazySection>
+          <Suspense fallback={<LoadingSpinner text="Memuat informasi..." />}>
+            <About />
+          </Suspense>
+        </LazySection>
 
         {/* Doctor Profile Section */}
-        <DoctorProfile />
+        <LazySection>
+          <Suspense fallback={<LoadingSpinner text="Memuat profil dokter..." />}>
+            <DoctorProfile />
+          </Suspense>
+        </LazySection>
 
         {/* Services Section */}
-        <Services onNavClick={handleNavClick} />
+        <LazySection>
+          <Suspense fallback={<LoadingSpinner text="Memuat layanan..." />}>
+            <Services onNavClick={handleNavClick} />
+          </Suspense>
+        </LazySection>
 
         {/* Practice Schedule Section */}
-        <Schedule onNavClick={handleNavClick} />
+        <LazySection>
+          <Suspense fallback={<LoadingSpinner text="Memuat jadwal..." />}>
+            <Schedule onNavClick={handleNavClick} />
+          </Suspense>
+        </LazySection>
 
         {/* Gallery Section */}
-        <Gallery />
+        <LazySection>
+          <Suspense fallback={<LoadingSpinner text="Memuat galeri..." />}>
+            <Gallery />
+          </Suspense>
+        </LazySection>
 
         {/* Testimonials Section */}
-        <Testimonials />
+        <LazySection>
+          <Suspense fallback={<LoadingSpinner text="Memuat testimoni..." />}>
+            <Testimonials />
+          </Suspense>
+        </LazySection>
 
         {/* FAQ Section */}
-        <FAQ />
+        <LazySection>
+          <Suspense fallback={<LoadingSpinner text="Memuat FAQ..." />}>
+            <FAQ />
+          </Suspense>
+        </LazySection>
 
         {/* Booking Form & Contact Information Section */}
-        <section className="py-20 bg-pattern px-4 md:px-10 border-t border-surface-variant/40" id="kontak">
-          <div className="max-w-7xl mx-auto" id="kontak-booking">
-            {/* Section Header */}
-            <div className="text-center mb-16 max-w-2xl mx-auto">
-              <h2 className="font-serif text-3xl md:text-4xl text-primary font-bold tracking-tight mb-4">Kontak & Reservasi</h2>
-              <p className="font-sans text-sm md:text-base text-on-surface-variant leading-relaxed">
-                Jadwalkan kunjungan Anda bersama tim dokter gigi profesional kami. Kenyamanan dan kesehatan gigi Anda adalah prioritas utama.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-              {/* Form Booking Column */}
-              <div className="lg:col-span-7" id="booking">
-                <BookingForm />
+        <LazySection>
+          <section className="py-20 bg-pattern px-4 md:px-10 border-t border-surface-variant/40" id="kontak">
+            <div className="max-w-7xl mx-auto" id="kontak-booking">
+              {/* Section Header */}
+              <div className="text-center mb-16 max-w-2xl mx-auto">
+                <h2 className="font-serif text-3xl md:text-4xl text-primary font-bold tracking-tight mb-4">Kontak & Reservasi</h2>
+                <p className="font-sans text-sm md:text-base text-on-surface-variant leading-relaxed">
+                  Jadwalkan kunjungan Anda bersama tim dokter gigi profesional kami. Kenyamanan dan kesehatan gigi Anda adalah prioritas utama.
+                </p>
               </div>
 
-              {/* Info Column */}
-              <div className="lg:col-span-5 space-y-6">
-                <Contact />
-                <ContactForm />
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                {/* Form Booking Column */}
+                <div className="lg:col-span-7" id="booking">
+                  <Suspense fallback={<LoadingSpinner text="Memuat formulir booking..." />}>
+                    <BookingForm />
+                  </Suspense>
+                </div>
+
+                {/* Info Column */}
+                <div className="lg:col-span-5 space-y-6">
+                  <Suspense fallback={<LoadingSpinner text="Memuat kontak..." />}>
+                    <Contact />
+                  </Suspense>
+                  <Suspense fallback={<LoadingSpinner text="Memuat formulir kontak..." />}>
+                    <ContactForm />
+                  </Suspense>
+                </div>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
+        </LazySection>
       </main>
 
       {/* Footer Section */}

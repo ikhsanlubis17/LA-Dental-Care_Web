@@ -16,7 +16,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
             $table->string('full_name');
             $table->string('email');
-            $table->enum('role', ['super_admin', 'admin', 'staff', 'editor'])->default('admin');
+            $table->enum('role', ['super_admin', 'admin'])->default('admin');
             $table->string('avatar_url')->nullable();
             $table->timestamps();
         });

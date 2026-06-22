@@ -13,6 +13,7 @@ export default defineConfig({
         tailwindcss(),
     ],
     server: {
+        host: '127.0.0.1',
         allowedHosts: true,
         proxy: {
             '/api': {
@@ -24,5 +25,8 @@ export default defineConfig({
         watch: {
             ignored: ['**/storage/framework/views/**'],
         },
+    },
+    build: {
+        sourcemap: false,
     },
 });

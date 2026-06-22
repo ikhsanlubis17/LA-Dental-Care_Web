@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import useSiteSettings from '../../hooks/useSiteSettings';
 import { generateWaLink, getDefaultWaMessage } from '../../lib/whatsapp';
 
 export default function Contact() {
   const { data: settings } = useSiteSettings();
+  const [showMap, setShowMap] = useState(false);
 
   const address = settings?.address || 'La Dental Care Dokter Gigi Klampok\nKec. Purwareja Klampok\nKab. Banjarnegara, Jawa Tengah';
   const googleMapsUrl = settings?.google_maps_url || 'https://maps.app.goo.gl/YourClinicLink';
@@ -24,15 +25,25 @@ export default function Contact() {
         
         {/* Google Maps Embed */}
         <div className="relative w-full rounded-lg overflow-hidden border border-outline-variant/50 mb-6" style={{ paddingBottom: '60%' }}>
-          <iframe
-            src={googleMapsEmbed}
-            title="Lokasi LA Dental Care Klampok di Google Maps"
-            className="absolute inset-0 w-full h-full"
-            style={{ border: 0 }}
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          {showMap ? (
+            <iframe
+              src={googleMapsEmbed}
+              title="Lokasi LA Dental Care Klampok di Google Maps"
+              className="absolute inset-0 w-full h-full"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          ) : (
+            <button
+              type="button"
+              onClick={() => setShowMap(true)}
+              className="absolute inset-0 w-full h-full bg-surface-container-low flex items-center justify-center text-sm font-sans font-semibold text-primary"
+            >
+              Tampilkan peta lokasi
+            </button>
+          )}
         </div>
 
         <div className="space-y-4 font-sans text-xs md:text-sm text-on-surface-variant">

@@ -28,6 +28,8 @@ export default function DoctorProfile() {
               alt={doctor.name || 'Doctor profile portrait'} 
               className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
               src={doctor.photo_url || '/fotodokter.png'}
+              loading="lazy"
+              decoding="async"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-transparent to-transparent"></div>
             <div className="absolute bottom-6 left-6 text-white text-left">

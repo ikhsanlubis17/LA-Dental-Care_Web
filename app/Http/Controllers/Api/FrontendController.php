@@ -18,68 +18,80 @@ use App\Models\Faq;
 use App\Models\SeoSetting;
 use App\Models\Booking;
 use App\Models\ContactMessage;
+use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Validator;
 
 class FrontendController extends Controller
 {
+    private function cachedResponse(string $key, callable $callback, int $minutes = 5)
+    {
+        $payload = Cache::remember($key, now()->addMinutes($minutes), $callback);
+
+        return response()->json($payload)
+            ->withHeaders([
+                'Cache-Control' => 'public, max-age=300, s-maxage=300',
+                'X-Cache-Key' => $key,
+            ]);
+    }
+
     public function getSiteSettings()
     {
-        return response()->json(SiteSetting::first());
+        return $this->cachedResponse('site-settings', fn () => SiteSetting::first());
     }
 
     public function getHeroSection()
     {
-        return response()->json(HeroSection::where('is_active', true)->latest()->first());
+        return $this->cachedResponse('hero-section', fn () => HeroSection::where('is_active', true)->latest()->first());
     }
 
     public function getAboutSection()
     {
-        return response()->json(AboutSection::where('is_active', true)->latest()->first());
+        return $this->cachedResponse('about-section', fn () => AboutSection::where('is_active', true)->latest()->first());
     }
 
     public function getClinicAdvantages()
     {
-        return response()->json(ClinicAdvantage::where('is_active', true)->orderBy('sort_order')->get());
+        return $this->cachedResponse('clinic-advantages', fn () => ClinicAdvantage::where('is_active', true)->orderBy('sort_order')->limit(8)->get());
     }
 
     public function getDoctors()
     {
-        return response()->json(Doctor::where('is_active', true)->orderBy('sort_order')->get());
+        return $this->cachedResponse('doctors', fn () => Doctor::where('is_active', true)->orderBy('sort_order')->limit(6)->get());
     }
 
     public function getServices()
     {
-        return response()->json(Service::where('is_active', true)->orderBy('sort_order')->get());
+        return $this->cachedResponse('services', fn () => Service::where('is_active', true)->orderBy('sort_order')->limit(8)->get());
     }
 
     public function getSchedules()
     {
-        return response()->json(Schedule::orderBy('sort_order')->get());
+        return $this->cachedResponse('schedules', fn () => Schedule::orderBy('sort_order')->limit(14)->get());
     }
 
     public function getSpecialSchedules()
     {
-        return response()->json(SpecialSchedule::where('date', '>=', today())->orderBy('date')->get());
+        return $this->cachedResponse('special-schedules', fn () => SpecialSchedule::where('date', '>=', today())->orderBy('date')->limit(6)->get());
     }
 
     public function getGallery()
     {
-        return response()->json(Gallery::where('is_active', true)->orderBy('sort_order')->get());
+        return $this->cachedResponse('gallery', fn () => Gallery::where('is_active', true)->orderBy('sort_order')->limit(9)->get());
     }
 
     public function getTestimonials()
     {
-        return response()->json(Testimonial::where('status', 'published')->orderBy('sort_order')->get());
+        return $this->cachedResponse('testimonials', fn () => Testimonial::where('status', 'published')->orderBy('sort_order')->limit(6)->get());
     }
 
     public function getFaqs()
     {
-        return response()->json(Faq::where('is_active', true)->orderBy('sort_order')->get());
+        return $this->cachedResponse('faqs', fn () => Faq::where('is_active', true)->orderBy('sort_order')->limit(8)->get());
     }
 
     public function getSeoSettings()
     {
-        return response()->json(SeoSetting::all());
+        return $this->cachedResponse('seo-settings', fn () => SeoSetting::first());
     }
 
     public function storeBooking(Request $request)

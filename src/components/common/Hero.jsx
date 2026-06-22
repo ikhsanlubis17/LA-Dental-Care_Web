@@ -1,13 +1,9 @@
 import React from 'react';
-import LoadingSpinner from '../ui/LoadingSpinner';
-import ErrorState from '../ui/ErrorState';
 import useHeroSection from '../../hooks/useHeroSection';
 
 export default function Hero({ onNavClick }) {
-  const { data: hero, loading, error, refetch } = useHeroSection();
-
-  if (loading) return <LoadingSpinner text="Memuat hero section..." />;
-  if (error) return <ErrorState message={error} onRetry={refetch} />;
+  const { data: hero } = useHeroSection();
+  const heroData = hero || {};
 
   return (
     <section
@@ -109,6 +105,8 @@ export default function Hero({ onNavClick }) {
             alt={hero?.doctor_name || 'drg. Lely Apriani Nasution at LA Dental Care'}
             className="w-full h-full object-cover z-0 transition-transform duration-700 hover:scale-105"
             src={hero?.image_url || '/fotodokter.png'}
+            loading="eager"
+            decoding="async"
           />
           <div className="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-4 rounded-xl z-20 flex items-center gap-4 border border-white/20 shadow-lg">
             <div className="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center shrink-0">

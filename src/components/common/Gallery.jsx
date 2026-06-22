@@ -85,6 +85,8 @@ export default function Gallery() {
                   src={item.image_url} 
                   alt={item.title} 
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                   <span className="material-symbols-outlined text-white text-3xl">zoom_in</span>
@@ -124,6 +126,8 @@ export default function Gallery() {
                 src={selectedImg.image_url} 
                 alt={selectedImg.title} 
                 className="w-full h-full object-contain"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="p-6 md:p-8">

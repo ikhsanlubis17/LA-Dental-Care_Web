@@ -26,8 +26,8 @@ export default function BookingForm() {
   const { data: settings } = useSiteSettings();
 
   const waNumber = settings?.whatsapp_number;
-  const serviceList = services || [];
-  const doctorList = doctors || [];
+  const serviceList = Array.isArray(services) ? services : [];
+  const doctorList = Array.isArray(doctors) ? doctors : [];
 
   const handleInputChange = (e) => {
     const { id, value } = e.target;

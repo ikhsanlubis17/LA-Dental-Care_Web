@@ -1,6 +1,161 @@
 {
+  "_EmptyState-DbZmkWi-.js": {
+    "file": "assets/EmptyState-DbZmkWi-.js",
+    "name": "EmptyState",
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js"
+    ]
+  },
+  "_ErrorState-D4n4uQUX.js": {
+    "file": "assets/ErrorState-D4n4uQUX.js",
+    "name": "ErrorState",
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js"
+    ]
+  },
+  "_Toast-JAO5rCYz.js": {
+    "file": "assets/Toast-JAO5rCYz.js",
+    "name": "Toast",
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js"
+    ]
+  },
+  "_jsx-runtime-BsrD74ha.js": {
+    "file": "assets/jsx-runtime-BsrD74ha.js",
+    "name": "jsx-runtime"
+  },
+  "_useDoctors-DOCG8-05.js": {
+    "file": "assets/useDoctors-DOCG8-05.js",
+    "name": "useDoctors",
+    "imports": [
+      "src/main.jsx"
+    ]
+  },
+  "_useServices--Q9dYj9z.js": {
+    "file": "assets/useServices--Q9dYj9z.js",
+    "name": "useServices",
+    "imports": [
+      "src/main.jsx"
+    ]
+  },
+  "src/components/common/About.jsx": {
+    "file": "assets/About-D9aKvOtI.js",
+    "name": "About",
+    "src": "src/components/common/About.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_EmptyState-DbZmkWi-.js",
+      "_ErrorState-D4n4uQUX.js"
+    ]
+  },
+  "src/components/common/BookingForm.jsx": {
+    "file": "assets/BookingForm-BKODX-Kj.js",
+    "name": "BookingForm",
+    "src": "src/components/common/BookingForm.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_Toast-JAO5rCYz.js",
+      "_useDoctors-DOCG8-05.js",
+      "_useServices--Q9dYj9z.js"
+    ]
+  },
+  "src/components/common/Contact.jsx": {
+    "file": "assets/Contact-Dc5x55f_.js",
+    "name": "Contact",
+    "src": "src/components/common/Contact.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx"
+    ]
+  },
+  "src/components/common/ContactForm.jsx": {
+    "file": "assets/ContactForm-eWOlaWWC.js",
+    "name": "ContactForm",
+    "src": "src/components/common/ContactForm.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_Toast-JAO5rCYz.js"
+    ]
+  },
+  "src/components/common/DoctorProfile.jsx": {
+    "file": "assets/DoctorProfile-C6JSylHX.js",
+    "name": "DoctorProfile",
+    "src": "src/components/common/DoctorProfile.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_ErrorState-D4n4uQUX.js",
+      "_useDoctors-DOCG8-05.js"
+    ]
+  },
+  "src/components/common/FAQ.jsx": {
+    "file": "assets/FAQ-CG75eiAm.js",
+    "name": "FAQ",
+    "src": "src/components/common/FAQ.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_EmptyState-DbZmkWi-.js",
+      "_ErrorState-D4n4uQUX.js"
+    ]
+  },
+  "src/components/common/Gallery.jsx": {
+    "file": "assets/Gallery-2eePFi1a.js",
+    "name": "Gallery",
+    "src": "src/components/common/Gallery.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_EmptyState-DbZmkWi-.js",
+      "_ErrorState-D4n4uQUX.js"
+    ]
+  },
+  "src/components/common/Schedule.jsx": {
+    "file": "assets/Schedule-C4f0NiMI.js",
+    "name": "Schedule",
+    "src": "src/components/common/Schedule.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_ErrorState-D4n4uQUX.js"
+    ]
+  },
+  "src/components/common/Services.jsx": {
+    "file": "assets/Services-SixuydUN.js",
+    "name": "Services",
+    "src": "src/components/common/Services.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_ErrorState-D4n4uQUX.js",
+      "_useServices--Q9dYj9z.js"
+    ]
+  },
+  "src/components/common/Testimonials.jsx": {
+    "file": "assets/Testimonials-sl3Xf_bO.js",
+    "name": "Testimonials",
+    "src": "src/components/common/Testimonials.jsx",
+    "isDynamicEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js",
+      "src/main.jsx",
+      "_ErrorState-D4n4uQUX.js"
+    ]
+  },
   "src/index.css": {
-    "file": "assets/index-4vuSXDfB.css",
+    "file": "assets/index-v6ruyZ5D.css",
     "name": "index",
     "names": [
       "index.css"
@@ -9,12 +164,27 @@
     "isEntry": true
   },
   "src/main.jsx": {
-    "file": "assets/main-CDpBb6tc.js",
+    "file": "assets/main-Dk-FzHNo.js",
     "name": "main",
     "src": "src/main.jsx",
     "isEntry": true,
+    "imports": [
+      "_jsx-runtime-BsrD74ha.js"
+    ],
+    "dynamicImports": [
+      "src/components/common/About.jsx",
+      "src/components/common/DoctorProfile.jsx",
+      "src/components/common/Services.jsx",
+      "src/components/common/Schedule.jsx",
+      "src/components/common/Gallery.jsx",
+      "src/components/common/Testimonials.jsx",
+      "src/components/common/FAQ.jsx",
+      "src/components/common/Contact.jsx",
+      "src/components/common/ContactForm.jsx",
+      "src/components/common/BookingForm.jsx"
+    ],
     "css": [
-      "assets/index-4vuSXDfB.css"
+      "assets/index-v6ruyZ5D.css"
     ]
   }
 }

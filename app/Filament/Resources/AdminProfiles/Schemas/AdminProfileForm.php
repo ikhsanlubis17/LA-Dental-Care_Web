@@ -22,7 +22,7 @@ class AdminProfileForm
                     ->email()
                     ->required(),
                 Select::make('role')
-                    ->options(['super_admin' => 'Super admin', 'admin' => 'Admin', 'staff' => 'Staff', 'editor' => 'Editor'])
+                    ->options(['super_admin' => 'Super Admin', 'admin' => 'Admin'])
                     ->default('admin')
                     ->required(),
                 TextInput::make('avatar_url')
